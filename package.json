@@ -1,0 +1,67 @@
+{
+  "name": "db2md",
+  "version": "0.1.0",
+  "description": "Generate Markdown documentation (ER diagram, table details, AI overview) from any database",
+  "author": "Nikhil Makwana",
+  "license": "MIT",
+  "homepage": "https://github.com/Nikhil-Cephei/db2md#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nikhil-Cephei/db2md.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nikhil-Cephei/db2md/issues"
+  },
+  "bin": {
+    "db2md": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs --dts --clean",
+    "dev": "ts-node src/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "database",
+    "markdown",
+    "documentation",
+    "er-diagram",
+    "schema",
+    "cli",
+    "postgres",
+    "mysql",
+    "sqlite",
+    "mongodb",
+    "mssql",
+    "db-docs",
+    "ai"
+  ],
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.1032.0",
+    "@inquirer/prompts": "^7.4.0",
+    "better-sqlite3": "^11.9.1",
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0",
+    "mongodb": "^6.14.2",
+    "mssql": "^11.0.1",
+    "mysql2": "^3.14.0",
+    "ora": "^8.2.0",
+    "pg": "^8.14.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/mssql": "^9.1.5",
+    "@types/node": "^22.14.1",
+    "@types/pg": "^8.11.11",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
