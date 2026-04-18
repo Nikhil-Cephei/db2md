@@ -1,6 +1,6 @@
 import mysql from 'mysql2/promise';
-import { BaseConnector } from './base.js';
-import { ConnectionConfig, TableInfo, ColumnInfo } from './types.js';
+import { BaseConnector } from './base';
+import { ConnectionConfig, TableInfo, ColumnInfo } from './types';
 
 export class MySQLConnector extends BaseConnector {
   private connection!: mysql.Connection;

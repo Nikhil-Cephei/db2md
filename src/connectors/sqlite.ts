@@ -1,7 +1,7 @@
 import Database from 'better-sqlite3';
 import path from 'path';
-import { BaseConnector } from './base.js';
-import { ConnectionConfig, TableInfo, ColumnInfo } from './types.js';
+import { BaseConnector } from './base';
+import { ConnectionConfig, TableInfo, ColumnInfo } from './types';
 
 export class SQLiteConnector extends BaseConnector {
   private db!: Database.Database;

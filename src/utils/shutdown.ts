@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import { fail } from './spinner.js';
+import { fail } from './spinner';
 
 type Cleanup = () => Promise<void> | void;
 

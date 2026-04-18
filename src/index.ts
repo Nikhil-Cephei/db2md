@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { registerSignalHandlers } from './utils/shutdown.js';
-import { run } from './cli.js';
+import { registerSignalHandlers } from './utils/shutdown';
+import { run } from './cli';
 
 registerSignalHandlers();
 

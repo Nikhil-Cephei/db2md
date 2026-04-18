@@ -1,11 +1,10 @@
-import { TableInfo } from '../connectors/types.js';
-import { generateErDiagram } from './er-diagram.js';
-import { generateTableDetails } from './table-details.js';
+import { TableInfo } from '../connectors/types';
+import { generateTableDetails } from './table-details';
 
 interface AssembleOptions {
   dbName: string;
   tables: TableInfo[];
-  erDiagram: string;
+  erDiagramFile: string;
   tableDetails: string;
   aiOverview?: string | null;
   aiFeatures?: string | null;
@@ -31,7 +30,7 @@ export function assembleMarkdown(opts: AssembleOptions): string {
   parts.push('---');
 
   parts.push('## ER Diagram');
-  parts.push(opts.erDiagram);
+  parts.push(`> See [\`${opts.erDiagramFile}\`](./${opts.erDiagramFile}) for the full ER diagram.`);
 
   parts.push('---');
 

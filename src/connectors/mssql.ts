@@ -1,6 +1,6 @@
 import sql from 'mssql';
-import { BaseConnector } from './base.js';
-import { ConnectionConfig, TableInfo, ColumnInfo } from './types.js';
+import { BaseConnector } from './base';
+import { ConnectionConfig, TableInfo, ColumnInfo } from './types';
 
 export class MSSQLConnector extends BaseConnector {
   private pool!: sql.ConnectionPool;

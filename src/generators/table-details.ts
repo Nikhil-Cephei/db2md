@@ -1,4 +1,4 @@
-import { TableInfo } from '../connectors/types.js';
+import { TableInfo } from '../connectors/types';
 
 export function generateTableDetails(tables: TableInfo[]): string {
   const sections: string[] = [];

@@ -1,6 +1,6 @@
 import { BedrockRuntimeClient, ConverseCommand } from '@aws-sdk/client-bedrock-runtime';
-import { TableInfo } from '../connectors/types.js';
-import { getSecret } from '../config/store.js';
+import { TableInfo } from '../connectors/types';
+import { getSecret } from '../config/store';
 
 export interface AiAnalysis {
   overview: string;

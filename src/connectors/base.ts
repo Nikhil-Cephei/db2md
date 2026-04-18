@@ -1,4 +1,4 @@
-import { TableInfo } from './types.js';
+import { TableInfo } from './types';
 
 export abstract class BaseConnector {
   abstract connect(): Promise<void>;

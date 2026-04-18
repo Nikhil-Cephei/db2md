@@ -1,26 +1,26 @@
-import { BaseConnector } from './base.js';
-import { ConnectionConfig, DbType } from './types.js';
+import { BaseConnector } from './base';
+import { ConnectionConfig, DbType } from './types';
 
 export function getConnector(config: ConnectionConfig): BaseConnector {
   switch (config.type) {
     case 'postgres': {
-      const { PostgresConnector } = require('./postgres.js');
+      const { PostgresConnector } = require('./postgres');
       return new PostgresConnector(config);
     }
     case 'mysql': {
-      const { MySQLConnector } = require('./mysql.js');
+      const { MySQLConnector } = require('./mysql');
       return new MySQLConnector(config);
     }
     case 'sqlite': {
-      const { SQLiteConnector } = require('./sqlite.js');
+      const { SQLiteConnector } = require('./sqlite');
       return new SQLiteConnector(config);
     }
     case 'mongodb': {
-      const { MongoDBConnector } = require('./mongodb.js');
+      const { MongoDBConnector } = require('./mongodb');
       return new MongoDBConnector(config);
     }
     case 'mssql': {
-      const { MSSQLConnector } = require('./mssql.js');
+      const { MSSQLConnector } = require('./mssql');
       return new MSSQLConnector(config);
     }
     default:

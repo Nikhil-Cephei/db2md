@@ -1,6 +1,6 @@
 import { select, input, password, confirm } from '@inquirer/prompts';
-import { ConnectionConfig, DbType } from '../connectors/types.js';
-import { DB_TYPES } from '../connectors/factory.js';
+import { ConnectionConfig, DbType } from '../connectors/types';
+import { DB_TYPES } from '../connectors/factory';
 
 export async function promptConnectionConfig(partial: Partial<ConnectionConfig>): Promise<ConnectionConfig> {
   const type: DbType = partial.type ?? await select({

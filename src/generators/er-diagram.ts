@@ -1,7 +1,7 @@
-import { TableInfo } from '../connectors/types.js';
+import { TableInfo } from '../connectors/types';
 
 export function generateErDiagram(tables: TableInfo[]): string {
-  const lines: string[] = ['```mermaid', 'erDiagram'];
+  const lines: string[] = ['erDiagram'];
 
   for (const table of tables) {
     lines.push(`  ${sanitize(table.name)} {`);
@@ -29,7 +29,6 @@ export function generateErDiagram(tables: TableInfo[]): string {
     }
   }
 
-  lines.push('```');
   return lines.join('\n');
 }
 

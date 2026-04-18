@@ -1,6 +1,6 @@
 import { Client } from 'pg';
-import { BaseConnector } from './base.js';
-import { ConnectionConfig, TableInfo, ColumnInfo } from './types.js';
+import { BaseConnector } from './base';
+import { ConnectionConfig, TableInfo, ColumnInfo } from './types';
 
 export class PostgresConnector extends BaseConnector {
   private client: Client;
@@ -16,6 +16,7 @@ export class PostgresConnector extends BaseConnector {
           database: config.database,
           user: config.user,
           password: config.password,
+          ssl: { rejectUnauthorized: false },
         });
   }
 

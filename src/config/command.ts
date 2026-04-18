@@ -1,7 +1,7 @@
 import { Command } from 'commander';
 import { input, password, confirm } from '@inquirer/prompts';
 import chalk from 'chalk';
-import { setSecret, getSecret, clearAll, getConfigDir } from './store.js';
+import { setSecret, getSecret, clearAll, getConfigDir } from './store';
 
 const CREDENTIALS = [
   { key: 'AWS_ACCESS_KEY_ID',     label: 'AWS Access Key ID',  sensitive: false },

@@ -2,16 +2,16 @@ import { Command } from 'commander';
 import path from 'path';
 import fs from 'fs';
 import chalk from 'chalk';
-import { ConnectionConfig, DbType } from './connectors/types.js';
-import { getConnector, DB_TYPES } from './connectors/factory.js';
-import { promptConnectionConfig } from './utils/prompt.js';
-import { spin, succeed, fail, warn, info, printBanner, printSuccess } from './utils/spinner.js';
-import { generateErDiagram } from './generators/er-diagram.js';
-import { generateTableDetails } from './generators/table-details.js';
-import { assembleMarkdown } from './generators/markdown.js';
-import { analyzeSchema, isBedrockAvailable } from './ai/analyzer.js';
-import { registerConfigCommand } from './config/command.js';
-import { onShutdown, removeShutdown } from './utils/shutdown.js';
+import { ConnectionConfig, DbType } from './connectors/types';
+import { getConnector, DB_TYPES } from './connectors/factory';
+import { promptConnectionConfig } from './utils/prompt';
+import { spin, succeed, fail, warn, info, printBanner, printSuccess } from './utils/spinner';
+import { generateErDiagram } from './generators/er-diagram';
+import { generateTableDetails } from './generators/table-details';
+import { assembleMarkdown } from './generators/markdown';
+import { analyzeSchema, isBedrockAvailable } from './ai/analyzer';
+import { registerConfigCommand } from './config/command';
+import { onShutdown, removeShutdown } from './utils/shutdown';
 
 function printHelp(): void {
   const b = chalk.bold;
@@ -195,23 +195,28 @@ export async function run(argv: string[]): Promise<void> {
   }
 
   spin('Writing output…');
-  const markdown = assembleMarkdown({
-    dbName: connector.getDatabaseName(),
-    tables,
-    erDiagram,
-    tableDetails,
-    aiOverview,
-    aiFeatures,
-  });
-
   const outputDir = path.resolve(opts.output);
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
   }
 
+  const baseName = opts.filename.replace(/\.md$/i, '');
+  const mmdFilename = `${baseName}.mmd`;
+  const mmdPath = path.join(outputDir, mmdFilename);
+  fs.writeFileSync(mmdPath, erDiagram, 'utf8');
+
+  const markdown = assembleMarkdown({
+    dbName: connector.getDatabaseName(),
+    tables,
+    erDiagramFile: mmdFilename,
+    tableDetails,
+    aiOverview,
+    aiFeatures,
+  });
+
   const outputPath = path.join(outputDir, opts.filename);
   fs.writeFileSync(outputPath, markdown, 'utf8');
-  succeed('File written');
+  succeed('Files written');
 
   printSuccess(outputPath);
 }
