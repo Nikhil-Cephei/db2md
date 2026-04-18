@@ -1,5 +1,5 @@
 {
-  "name": "@nikks/db2md",
+  "name": "@nikhil-cephei/db2md",
   "version": "0.1.0",
   "description": "Generate Markdown documentation (ER diagram, table details, AI overview) from any database",
   "keywords": [
