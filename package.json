@@ -1,30 +1,7 @@
 {
-  "name": "db2md",
+  "name": "@nikks/db2md",
   "version": "0.1.0",
   "description": "Generate Markdown documentation (ER diagram, table details, AI overview) from any database",
-  "author": "Nikhil Makwana",
-  "license": "MIT",
-  "homepage": "https://github.com/Nikhil-Cephei/db2md#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Nikhil-Cephei/db2md.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Nikhil-Cephei/db2md/issues"
-  },
-  "bin": {
-    "db2md": "./dist/index.js"
-  },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "tsup src/index.ts --format cjs --dts --clean",
-    "dev": "ts-node src/index.ts",
-    "prepublishOnly": "npm run build"
-  },
   "keywords": [
     "database",
     "markdown",
@@ -40,6 +17,30 @@
     "db-docs",
     "ai"
   ],
+  "homepage": "https://github.com/Nikhil-Cephei/db2md#readme",
+  "bugs": {
+    "url": "https://github.com/Nikhil-Cephei/db2md/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nikhil-Cephei/db2md.git"
+  },
+  "license": "MIT",
+  "author": "Nikhil Makwana",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "db2md": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs --dts --clean",
+    "dev": "ts-node src/index.ts",
+    "prepublishOnly": "npm run build"
+  },
   "dependencies": {
     "@aws-sdk/client-bedrock-runtime": "^3.1032.0",
     "@inquirer/prompts": "^7.4.0",
